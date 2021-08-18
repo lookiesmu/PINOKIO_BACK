@@ -1,0 +1,4 @@
+rootProject.name = 'pinokio'
+include 'domain'
+include 'web'
+
