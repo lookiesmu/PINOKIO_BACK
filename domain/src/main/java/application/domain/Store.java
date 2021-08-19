@@ -26,8 +26,4 @@ public class Store extends BasicClass {
     @OneToMany(mappedBy = "store")
     List<Item> itemList = new ArrayList<>();
 
-
-
-
-
 }
