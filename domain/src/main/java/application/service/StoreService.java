@@ -1,4 +1,4 @@
 package application.service;
 
-public class StoreService {
+public interface StoreService {
 }

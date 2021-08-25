@@ -1,16 +1,17 @@
 buildscript{
 	ext{
 		springBootVersion= '2.5.3'
+		queryDslVersion = '4.4.0'
+		querydslPluginVersion = '1.0.10'
 	}
 	repositories {
 		mavenCentral()
+		maven { url "https://plugins.gradle.org/m2/" }
 	}
 	dependencies {
 		classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+		classpath "gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:${querydslPluginVersion}"
 	}
-}
-plugins{
-	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
 }
 subprojects {
 
@@ -36,11 +37,13 @@ subprojects {
 		runtimeOnly 'com.h2database:h2'
 		annotationProcessor 'org.projectlombok:lombok'
 		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+		implementation 'org.springframework.boot:spring-boot-starter-validation'
+		implementation 'com.querydsl:querydsl-jpa'
+		implementation 'com.querydsl:querydsl-apt'
+		implementation 'org.springframework.boot:spring-boot-starter-web'
 	}
 
-	test {
-		useJUnitPlatform()
-	}
 	bootJar{
 		enabled = false
 	}
@@ -67,6 +70,10 @@ subprojects {
 
 	configurations {
 		querydsl.extendsFrom compileClasspath
+	}
+
+	test {
+		useJUnitPlatform()
 	}
 }
 

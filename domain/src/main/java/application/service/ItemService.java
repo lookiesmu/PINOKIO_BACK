@@ -1,4 +1,6 @@
 package application.service;
 
-public class ItemService {
+public interface ItemService {
+
+
 }
