@@ -3,10 +3,9 @@ package application.domain;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnJava;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
@@ -17,24 +16,20 @@ public class Item extends BasicClass{
     @Column(name = "item_id")
     private Long id;
 
-
     @Column
     private String itemName;
 
     @Column
     private Long price;
 
-
     @Enumerated(EnumType.STRING)
     private ItemStatus itemStatus;
 
-    @JoinColumn(name = "store_id")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Store store;
 
-    @OneToMany(mappedBy = "item")
-    @Column
-    List<OrderItem> orderItemList = new ArrayList<>();
+    @JoinColumn(name="category_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Category category;
+
 
 
 }
