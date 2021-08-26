@@ -18,22 +18,6 @@ public class MenuController {
 
 
 
-    @GetMapping("/menu")
-    public List<MenuResponse> getMenu(@RequestBody StoreDto storeDto){
-
-    }
-
-
-
-    @GetMapping("/cart")
-    public ConfirmResponse postToKiosk(@RequestBody MenuRequest menuRequest){
-
-    }
-
-
-
-
-
     @Data
     public static class MenuResponse{
 
