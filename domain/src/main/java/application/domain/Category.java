@@ -1,6 +1,7 @@
 package application.domain;
 
 import com.fasterxml.jackson.databind.introspect.TypeResolutionContext;
+import com.querydsl.core.annotations.QueryProjection;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,4 +29,5 @@ public class Category extends BasicClass {
 
     @OneToMany(mappedBy = "category")
     private List<Item> items = new ArrayList<>();
+
 }

@@ -1,7 +1,7 @@
 package application.repository;
 
 import application.domain.Category;
-import application.domain.Item;
+import application.domain.Owner;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -10,11 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface CategoryRepository extends JpaRepository<Category, Long>, CategoryRepositoryCustom{
+public interface OwnerRepository extends JpaRepository<Owner, Long>{
 
-    Optional<Category> findByCategoryName(String categoryName);
-
-    List<Category> findByStoreId(Long id);
-
+    Optional<Owner> findByUsername(String username);
 
 }

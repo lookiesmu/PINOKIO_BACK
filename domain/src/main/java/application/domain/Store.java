@@ -1,7 +1,6 @@
 package application.domain;
 
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -18,9 +17,6 @@ public class Store extends BasicClass {
     @Column(name = "store_id")
     private Long id;
 
-
-
-
     @Column
     private String storeName;
 
@@ -31,14 +27,11 @@ public class Store extends BasicClass {
     @OneToMany(mappedBy = "store")
     private List<Category> categories = new ArrayList<>();
 
-    
-    @OneToMany(mappedBy = "store")
-    List<Item> itemList = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="owner_id")
+    private Owner owner;
 
 
-    @Builder
-    public Store(String storeName, String branch){
-        this.branch=branch;
-        this.storeName=storeName;
-    }
+
 }
