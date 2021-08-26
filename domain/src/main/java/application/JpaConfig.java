@@ -18,15 +18,15 @@ public class JpaConfig {
     private final EntityManager em;
 
     @Bean
-    public JPAQueryFactory jpaQueryFactory(EntityManager em){
-        return new JPAQueryFactory(em);
-    }
-
-    @Bean
     public AuditorAware<String> auditorAware(){
         return () -> Optional.of(UUID.randomUUID().toString());
     }
 
+
+    @Bean
+    public JPAQueryFactory jpaQueryFactory(EntityManager em){
+        return new JPAQueryFactory(em);
+    }
 
 
 }
