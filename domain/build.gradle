@@ -12,7 +12,7 @@ jar {
 
 dependencies {
     runtimeOnly 'com.h2database:h2'
-    implementation('com.querydsl:querydsl-jpa')
+    compile('com.querydsl:querydsl-jpa')
 }
 
 
