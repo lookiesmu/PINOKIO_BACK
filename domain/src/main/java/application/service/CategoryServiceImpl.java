@@ -31,5 +31,8 @@ public class CategoryServiceImpl implements CategoryService{
         Long find = categoryRepository.findById(id).get().getId();
         categoryRepository.deleteById(find);
     }
+    public Optional<Category> findByCategoryId(String categoryName){
+        return categoryRepository.findByCategoryName(categoryName);
+    }
 
 }

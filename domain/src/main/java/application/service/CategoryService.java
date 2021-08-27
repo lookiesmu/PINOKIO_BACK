@@ -10,4 +10,6 @@ public interface CategoryService {
     public List<Category> findAll();
     public Optional<Category> findById(Long id);
     public void deleteById(Long id);
+    public Optional<Category> findByCategoryId(String categoryName);
+
 }
